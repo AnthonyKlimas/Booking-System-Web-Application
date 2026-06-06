@@ -1,0 +1,105 @@
+body
+{
+    font-family: "Open Sans", sans-serif;
+}
+
+.pageText
+{
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 575px;
+    color: rgb(81, 117, 21);
+    font-weight: 600;
+    line-height: 1.5;
+    
+}
+
+.phoneNumber
+{
+    color: #86654e;
+    text-decoration: underline;
+}
+
+.pageHeader
+{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.appointmentHeader
+{
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+
+
+
+.appointmentList
+{
+    margin: 0 auto;
+    max-width: 575px;
+    margin-top: 40px;
+
+    border: 1px solid white;
+    box-shadow: 0 1px 10px rgba(0,0,0,0.08);
+}
+
+.appointmentCard
+{  
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+    align-items: flex-start;
+    justify-content: space-between;
+    display: flex;
+
+    gap: 100px;
+    color:rgb(81, 117, 21, 0.90);
+    font-size: 12px;
+    border-bottom:1px solid rgba(80, 117, 21, 0.25);
+}
+
+.appointmentCard:last-child
+{
+    border-bottom: none;
+}
+
+.appointmentcardText h3
+{
+    margin-bottom: 5px;
+    margin-left: 15px;
+}
+
+.appointmentcardText p
+{
+    margin-top: 0;
+    margin-left: 15px;
+}
+
+
+
+.bookButton
+{
+    background-color: rgb(81, 117, 21);
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-right: 15px;
+    margin-top: 10px;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 10px;
+    transition: .3s; 
+}
+
+.bookButton:hover
+{
+    transform: scale(125%, 125%);
+    background-color: rgba(81, 117, 21, 0.75);
+}
