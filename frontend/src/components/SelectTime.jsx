@@ -2,11 +2,11 @@ import './SelectTime.css'
 
 import PageHeader from './PageHeader'
 
-function SelectTime()
+function SelectTime({setPage})
 {
     return(
         <>
-            <PageHeader title="Date & Time" />
+            <PageHeader title="Date & Time" setPage={setPage} />
         </>
 
     );

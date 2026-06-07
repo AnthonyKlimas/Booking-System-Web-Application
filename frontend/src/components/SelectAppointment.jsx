@@ -13,7 +13,7 @@ function Appointments({setPage})
     //Create a useState of an array that variables that can set appointment types from database
     const [appointments, setAppointments] = useState([]);
     
-    //fetches all rows in the table services from our database and puts in in the array setAppointments
+    //fetches all rows in the table services from our database and puts it in the array setAppointments
     useEffect(() => 
     {
         fetch('http://localhost:3000/services')
@@ -29,7 +29,7 @@ function Appointments({setPage})
     return(
     <>
         {/*Call Page Header component into program*/}
-        <PageHeader title= "Select Appointment"/>
+        <PageHeader title= "Select Appointment" setPage={setPage} />
 
             {/*Create container that holds the list of type of appointments that is created*/}
         <div className = "appointmentList">

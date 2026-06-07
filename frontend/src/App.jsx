@@ -14,7 +14,7 @@ function App() {
       }
       {
         page === "time" &&
-        <SelectTime />
+        <SelectTime setPage ={setPage}/>
       }
       </>
   )
