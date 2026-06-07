@@ -1,10 +1,12 @@
 import './SelectTime.css'
 
+import PageHeader from './PageHeader'
+
 function SelectTime()
 {
     return(
         <>
-            <h1>Times</h1>
+            <PageHeader title="Date & Time" />
         </>
 
     );

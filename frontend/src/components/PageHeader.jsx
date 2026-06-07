@@ -1,8 +1,10 @@
+//Import css sheet for styling
 import './PageHeader.css'
 
-import { Calendar } from 'lucide-react';
+//Import calendar icon from lucide-react library
+import { Calendar, ArrowLeft } from 'lucide-react';
 
-function PageHeader()
+function PageHeader({ title })
 {
     return(
     <>
@@ -23,10 +25,12 @@ function PageHeader()
             {/* Create container for Select Appointment header so you can place calendar icon next to text*/}
             <div className = "appointmentHeader">
                 {/* Place calendar icon on screen as element*/}
-                <Calendar size={18} />
-                <h3 className = "pageHeader">Select Appointment</h3>
-
+                <div className= "pageTitle">
+                    <Calendar size={18} />
+                    <h3 className = "pageHeader"> {title} </h3>
+                </div>
             </div>
+
         </div>
     </>
     );

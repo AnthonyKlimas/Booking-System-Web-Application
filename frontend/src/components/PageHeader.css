@@ -1,6 +1,6 @@
 .pageText
 {
-    margin-top: 100px;
+    margin-top: 75px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -10,6 +10,7 @@
     line-height: 1.5;
     
 }
+
 
 .phoneNumber
 {
@@ -25,9 +26,27 @@
 
 .appointmentHeader
 {
-    margin-top: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 50px;
+}
+
+.pageTitle
+{
+    display: flex;
+    align-items: center;
     gap: 8px;
 }
+
+.backContainer
+{
+    display: flex;
+    align-items: center;
+}
+
+.backAppointmentButton
+{
+    border: none;
+}
+

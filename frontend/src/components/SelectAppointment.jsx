@@ -1,7 +1,5 @@
 //Import css sheet over for styling
 import './SelectAppointment.css'
-//Import calendar icon from lucide-react library
-import { Calendar } from 'lucide-react';
 
 //Import useState and useEffect classes from react library
 import {useState, useEffect} from 'react';
@@ -31,7 +29,7 @@ function Appointments({setPage})
     return(
     <>
         {/*Call Page Header component into program*/}
-        <PageHeader />
+        <PageHeader title= "Select Appointment"/>
 
             {/*Create container that holds the list of type of appointments that is created*/}
         <div className = "appointmentList">
