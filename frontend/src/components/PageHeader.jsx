@@ -34,7 +34,7 @@ function PageHeader({ title, setPage })
                                     <div className= "backButtonContainer">
                                         <ArrowLeft className= "arrowIcon" size={18} />
                                         <button className = "selectappointmentBack" onClick={() => setPage("appointments")}>
-                                        Select Appointment
+                                        SELECT APPOINTMENT
                                         </button>
                                     </div>
                                 </>

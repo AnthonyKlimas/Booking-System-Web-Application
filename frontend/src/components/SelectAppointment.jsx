@@ -8,7 +8,7 @@ import {useState, useEffect} from 'react';
 import PageHeader from './PageHeader';
 
 //Appointments function that has setPage variable as parameter
-function Appointments({setPage})
+function Appointments({setPage, setSelectedAppointment})
 {
     //Create a useState of an array that variables that can set appointment types from database
     const [appointments, setAppointments] = useState([]);
@@ -72,7 +72,11 @@ function Appointments({setPage})
                         </div>
                         
                         {/*Create book button in container (OnClick changes setPage useState to time)*/}
-                        <button className = "bookButton" onClick= {() => setPage("time")}>
+                        <button className = "bookButton" onClick= {() =>
+                        { 
+                            setPage("time"); 
+                            setSelectedAppointment(appointment);
+                        }}>
                             BOOK
                         </button>
 

@@ -4,17 +4,18 @@ import SelectTime from './components/SelectTime'
 
 function App() {
   const [page, setPage] = useState("appointments")
+  const [selectedAppointment, setSelectedAppointment] = useState(null);
 
   return (
       <>
       {
         page === "appointments" &&
-        <Appointments setPage = {setPage} />
+        <Appointments setPage = {setPage} setSelectedAppointment = {setSelectedAppointment} />
 
       }
       {
         page === "time" &&
-        <SelectTime setPage ={setPage}/>
+        <SelectTime setPage = {setPage} selectedAppointment = {selectedAppointment}/>
       }
       </>
   )
