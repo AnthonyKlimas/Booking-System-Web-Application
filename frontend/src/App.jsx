@@ -1,12 +1,21 @@
 import { useState } from 'react'
 import Appointments from './components/SelectAppointment'
+import SelectTime from './components/SelectTime'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [page, setPage] = useState("appointments")
 
   return (
       <>
-      <Appointments />
+      {
+        page === "appointments" &&
+        <Appointments setPage = {setPage} />
+
+      }
+      {
+        page === "time" &&
+        <SelectTime />
+      }
       </>
   )
 }

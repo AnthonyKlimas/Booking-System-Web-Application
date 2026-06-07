@@ -6,12 +6,16 @@ import { Calendar } from 'lucide-react';
 //Import useState and useEffect classes from react library
 import {useState, useEffect} from 'react';
 
-function Appointments()
+//Import PageHeader function from PageHeader.jsx
+import PageHeader from './PageHeader';
+
+//Appointments function that has setPage variable as parameter
+function Appointments({setPage})
 {
     //Create a useState of an array that variables that can set appointment types from database
     const [appointments, setAppointments] = useState([]);
     
-    //fetches all rows in the table services from our databse and puts in in the array setAppointments
+    //fetches all rows in the table services from our database and puts in in the array setAppointments
     useEffect(() => 
     {
         fetch('http://localhost:3000/services')
@@ -26,29 +30,8 @@ function Appointments()
     //This is what will be returned by the SelectAppointments.jsx
     return(
     <>
-        {/* Create container for description at top of page */}
-        <div className = "pageText">
-
-            <p>
-                If you don't see same-day availability when you discover Lice, please call{" "} 
-
-                <span className="phoneNumber">
-                    843-323-5366
-                </span>
-
-                 . We do everything we can to accommodate families the very day they reach out,
-                whenever our schedules allow.
-            </p>
-
-            {/* Create container for Select Appointment header so you can place calendar icon next to text*/}
-            <div className = "appointmentHeader">
-                {/* Place calendar icon on screen as element*/}
-                <Calendar size={18} />
-                <h3 className = "pageHeader">Select Appointment</h3>
-
-            </div>
-
-        </div>
+        {/*Call Page Header component into program*/}
+        <PageHeader />
 
             {/*Create container that holds the list of type of appointments that is created*/}
         <div className = "appointmentList">
@@ -90,8 +73,8 @@ function Appointments()
                             }
                         </div>
                         
-                        {/*Create book button in container*/}
-                        <button className = "bookButton">
+                        {/*Create book button in container (OnClick changes setPage useState to time)*/}
+                        <button className = "bookButton" onClick= {() => setPage("time")}>
                             BOOK
                         </button>
 
@@ -100,7 +83,7 @@ function Appointments()
                 ))
             }
 
-        </div>
+        </div> 
 
     </>
     );
