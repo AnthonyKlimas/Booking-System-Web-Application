@@ -2,7 +2,7 @@ import './SelectTime.css'
 
 import PageHeader from './PageHeader'
 
-import { X } from 'lucide-react'
+import { X, ChevronRight, ChevronLeft } from 'lucide-react'
 
 import {useState} from 'react'
 
@@ -109,7 +109,29 @@ function getDateLabel(date)
                 <div className= "timezoneContainer">
                     <p className="timeZone">TIME ZONE: EASTERN TIME (GMT-04:00)</p>
                 </div>
-                        <div className= "dateHeader">
+                    
+                    <div className= "dateNavigation">
+                        
+                            <button className= "moveDatesLeft" onClick= {() =>
+                                {
+                                    if(startIndex - 5 >= 0)
+                                    {
+                                        setStartIndex(startIndex - 5);
+                                    }
+                                }}
+                                style={{visibility: startIndex === 0
+                                    ? "hidden"
+                                    : "visible"
+                                }}
+                                > 
+                                    <ChevronLeft size={22}/>
+                                </button>
+                        <div className= {visibleDates.length < 5
+
+                            ? "dateHeaderCenter"
+                            : "dateHeader"
+                        }
+                        >
                             {
                                 visibleDates.map((date, index) => 
                                 (
@@ -143,11 +165,30 @@ function getDateLabel(date)
 
                                     </div>
                                 ))
-                            }
+
+                                }
                         </div>
+
+                                <button className= "moveDatesRight" onClick= {() =>
+                                {
+                                    if(startIndex + 5 < dates.length)
+                                    {
+                                        setStartIndex(startIndex + 5);
+                                    }
+                                }}
+                                 style={{visibility: startIndex + 5 >= dates.length
+                                    ? "hidden"
+                                    : "visible"
+                                }}
+                                > 
+                                    <ChevronRight size={22}/>
+                                </button>
+
+                    </div>
+
                 <div className= "bookingTimes">
                         
-                </div>    
+            </div>    
 
             </div>
         </>
