@@ -7,10 +7,10 @@ import {useState, useEffect} from 'react';
 //Import PageHeader function from PageHeader.jsx
 import PageHeader from './PageHeader';
 
-//Appointments function that has setPage variable as parameter
+//Appointments function that has setPage variable and setSelectAppointment as parameters
 function Appointments({setPage, setSelectedAppointment})
 {
-    //Create a useState of an array that variables that can set appointment types from database
+    //Create a useState of an array of variables that can set appointment types from database
     const [appointments, setAppointments] = useState([]);
     
     //fetches all rows in the table services from our database and puts it in the array setAppointments
