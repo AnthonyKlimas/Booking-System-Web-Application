@@ -70,6 +70,23 @@ function SelectTime({setPage, selectedAppointment})
     //Creates visibleDates variable that holds a subarray of the dates array to display
     const visibleDates = dates.slice(startIndex, startIndex + 5);
 
+    const [selectedTime, setSelectedTime] = useState(null);
+
+    const times =
+    [
+        "8:00 AM",
+        "8:15 AM",
+        "8:30 AM",
+        "8:45 AM",
+        "9:00 AM",
+        "9:15 AM",
+        "9:30 AM",
+        "9:45 AM",
+        "10:00 AM",
+        "10:15 AM",
+        "10:30 AM"
+    ];
+
     //What the SelectTime function will return onto the screen
     return(
         <>
@@ -157,42 +174,66 @@ function SelectTime({setPage, selectedAppointment})
                         {/*Add ChevronLeft icon for button display*/}
                         <ChevronLeft size={22}/>
                     </button>
+                        <div className= "calendarContent">
+                            {/*Changes class name depending on how many elements are located in the visibleDates array*/}
+                            <div className= {visibleDates.length < 5 ? "dateHeaderCenter" : "dateHeader"}>
+                                {/*Let program know we are writing in JavaScript again*/}
+                                {   
+                                    //Uses the map JavaScript built in function for arrays to iterate through visibleDates array
+                                    visibleDates.map((date, index) => 
+                                    (
+                                        //Creates a container that holds the index key so React can identify each generated column
+                                        <div className="dateRow" key={index} >
 
-                    {/*Changes class name depending on how many elements are located in the visibleDates array*/}
-                    <div className= {visibleDates.length < 5 ? "dateHeaderCenter" : "dateHeader"}>
-                        {/*Let program know we are writing in JavaScript again*/}
-                        {   
-                            //Uses the map JavaScript built in function for arrays to iterate through visibleDates array
-                            visibleDates.map((date, index) => 
-                            (
-                                //Creates a container that holds the index key so React can identify each generated column
-                                <div className="dateRow" key={index} >
+                                            {/*Calls getDateLabel function that takes selected date to generate a date label*/}
+                                            <p className="dateLabel">
+                                                {getDateLabel(date)}
+                                            </p>
 
-                                    {/*Calls getDateLabel function that takes selected date to generate a date label*/}
-                                    <p className="dateLabel">
-                                        {getDateLabel(date)}
-                                    </p>
+                                            {/*Uses toLocaleDateString function to return the weekday variable in the date object as a string*/}
+                                            <h3 className= "dateWeekday">
+                                                {
+                                                    date.toLocaleDateString( "en-US",{ weekday: "long"})
+                                                }
+                                            </h3>
 
-                                    {/*Uses toLocaleDateString function to return the weekday variable in the date object as a string*/}
-                                    <h3 className= "dateWeekday">
+                                            {/*Uses toLocaleDateString function to return the month variable and day variable as a string*/}
+                                            <p className= "dateNumber">
+                                                {
+                                                    date.toLocaleDateString("en-US",{ month: "short", day: "numeric" })
+                                                }
+                                            </p>
+
+                                        </div>
+                                    ))
+
+                                }
+                            </div>
+
+                                <div className= "bookingTimes">
+                    {
+                        visibleDates.map((date, index) =>
+                        (
+                            <div className="bookingColumn" key={index}>
+                                {
+                                    times.map(time =>
+                                    (
+                                        <button className= "timeButton" key={time} onClick={() =>
                                         {
-                                            date.toLocaleDateString( "en-US",{ weekday: "long"})
-                                        }
-                                    </h3>
-
-                                    {/*Uses toLocaleDateString function to return the month variable and day variable as a string*/}
-                                    <p className= "dateNumber">
-                                        {
-                                            date.toLocaleDateString("en-US",{ month: "short", day: "numeric" })
-                                        }
-                                    </p>
-
-                                </div>
-                            ))
-
-                        }
+                                            setSelectedTime(time);
+                                            setPage("information");
+                                        }}
+                                        >
+                                            {time}
+                                        </button>
+                                    ))
+                                }
+                            </div>
+                        ))
+                    }
                     </div>
 
+                        </div>
                     {/*Creates right arrow button to navigate through dates*/}
                     <button className= "moveDatesRight" onClick= {() =>
                         {
@@ -213,12 +254,8 @@ function SelectTime({setPage, selectedAppointment})
                         <ChevronRight size={22}/>
                     </button>
 
-                </div>
-
-                <div className= "bookingTimes">
-                        
                 </div>    
-
+            
             </div>
         </>
 
